@@ -76,20 +76,6 @@
 		let bpjs = gapok * 0.1;
 		let totGaji = gapok + tunjanganJabatan + tunjanganStatus - bpjs;
 
-		// fungsi format rupiah
-		function formatRupiah(angka) {
-			var number_string = angka.toString(),
-				sisa = number_string.length % 3,
-				rupiah = number_string.substr(0, sisa),
-				ribuan = number_string.substr(sisa).match(/\d{3}/g);
-
-			if (ribuan) {
-				separator = sisa ? "." : "";
-				rupiah += separator + ribuan.join(".");
-			}
-			return "Rp " + rupiah;
-		}
-
 		// menampilkan data pegawai
 		let content = document.getElementById("content");
 		content.innerHTML = `
@@ -113,9 +99,7 @@
                         <td class="center">${gapok}</td>
                         <td class="center">${tunjanganJabatan}</td>
                         <td class="center">${tunjanganStatus}</td>
-                        <td class="center">
-                            ${formatRupiah(bpjs)}
-                            </td>
+                        <td class="center">${bpjs}</td>
                     </tr>
                 </tbody>
                 <tfoot bgcolor="lightgray">
